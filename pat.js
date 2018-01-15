@@ -1,6 +1,6 @@
 (function(exports, $container){
   var SL = {
-      beatsPerLoop: 16,
+      beatsPerLoop: 60,
       beatsPerMinute: 200,
       _loops: {},
       _stop: false,
@@ -65,6 +65,6 @@
 })(window, $("html"));
 
 
-superloops.add('base', 'k - - - o - - - k - - k o - - - k - - - o - - - k - - k o - - - k - - - o - - - k - - k o - - -')
-          // .add('snare', '- - o - - - o - - - o - - - o -')
+superloops.add('a', 'k - - - o - - - k - - k j - - - k - - - o - - - k - - k j - - - k - - - o - - - k - - k j - - - k - - - - - - -')
+          .add('b', '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - q w - e e e d')
           // .add('love', '- p - h - e - a - r - t - m - -');
