@@ -1,6 +1,6 @@
 (function(exports, $container){
   var SL = {
-      beatsPerLoop: 120,
+      beatsPerLoop: 110,
       beatsPerMinute: 300,
       _loops: {},
       _stop: false,
@@ -59,7 +59,7 @@
   superloop(0, SL.beatsPerLoop, SL.beatsPerMinute);
   exports.superloops = SL;
   if ($container) {
-    $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">实现：Helen</div>');
+    $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">作曲：Helen</div>');
   }
   console.clear()
 })(window, $("html"));
@@ -130,4 +130,22 @@ superloops.add('a',
       '- a s - s - s d',
     ].join(' ')
   )
+  superloops.add('d', [
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    '- - - - - - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - x - - -',
+    'x - - - - - - -',
+  ].join(' ')
+)
 
