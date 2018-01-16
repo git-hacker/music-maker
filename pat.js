@@ -1,6 +1,6 @@
 (function(exports, $container){
   var SL = {
-      beatsPerLoop: 60,
+      beatsPerLoop: 120,
       beatsPerMinute: 300,
       _loops: {},
       _stop: false,
@@ -59,7 +59,7 @@
   superloop(0, SL.beatsPerLoop, SL.beatsPerMinute);
   exports.superloops = SL;
   if ($container) {
-    $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">作曲：小陈; 实现：Helen</div>');
+    $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">实现：Helen</div>');
   }
   console.clear()
 })(window, $("html"));
@@ -67,7 +67,14 @@
 
 superloops.add('a',
             [
+              'k k - - o - - -',
+              'k - - k j - - -',
               'k - - - o - - -',
+              'k - - k j - - -',
+              'k - - - o - - -',
+              'k - - k j - - -',
+              '- - - - - - - -',
+              'k k - - o - - -',
               'k - - k j - - -',
               'k - - - o - - -',
               'k - - k j - - -',
@@ -89,13 +96,38 @@ superloops.add('a',
           // )
           // setTimeout(superloops.remove('b'), 5000)
 
-          superloops.add('c', [
-              '- - - - - - - -',
-              '- - - - - - - -',
-              '- - - - - - - -',
-              '- - - - - - - -',
-              '- - - - - - - -',
-              '- - - - - - - -',
-              '- a w - e - e d',
-            ].join(' ')
-          )
+  superloops.add('b', [
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- q w - e - e d',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+    ].join(' ')
+  )
+  superloops.add('c', [
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- - - - - - - -',
+      '- a s - s - s d',
+    ].join(' ')
+  )
+
