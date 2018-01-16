@@ -1,7 +1,7 @@
 (function(exports, $container){
   var SL = {
       beatsPerLoop: 60,
-      beatsPerMinute: 350,
+      beatsPerMinute: 250,
       _loops: {},
       _stop: false,
       add: function(name, beats) {
