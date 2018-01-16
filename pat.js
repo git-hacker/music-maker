@@ -99,5 +99,3 @@ superloops.add('a',
               '- a w - e - e d',
             ].join(' ')
           )
-
-          // .add('love', '- p - h - e - a - r - t - m - -');
