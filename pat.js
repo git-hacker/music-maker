@@ -1,7 +1,7 @@
 (function(exports, $container){
   var SL = {
       beatsPerLoop: 60,
-      beatsPerMinute: 200,
+      beatsPerMinute: 350,
       _loops: {},
       _stop: false,
       add: function(name, beats) {
@@ -65,6 +65,39 @@
 })(window, $("html"));
 
 
-superloops.add('a', 'k - - - o - - - k - - k j - - - k - - - o - - - k - - k j - - - k - - - o - - - k - - k j - - - k - - - - - - -')
-          .add('b', '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - q w - e e e d')
+superloops.add('a',
+            [
+              'k - - - o - - -',
+              'k - - k j - - -',
+              'k - - - o - - -',
+              'k - - k j - - -',
+              'k - - - o - - -',
+              'k - - k j - - -',
+              '- - - - - - - -',
+            ].join(' ')
+          )
+          // .add('b',
+          //   [
+          //     '- - - - - - - -',
+          //     '- - - - - - - -',
+          //     '- - - - - - - -',
+          //     '- - - - - - - -',
+          //     '- - - - - - - -',
+          //     '- - - - - - - -',
+          //     '- q w - e e e d'
+          //   ].join(' ')
+          // )
+          // setTimeout(superloops.remove('b'), 5000)
+
+          superloops.add('c', [
+              '- - - - - - - -',
+              '- - - - - - - -',
+              '- - - - - - - -',
+              '- - - - - - - -',
+              '- - - - - - - -',
+              '- - - - - - - -',
+              '- a w - e - e d',
+            ].join(' ')
+          )
+
           // .add('love', '- p - h - e - a - r - t - m - -');
