@@ -12,7 +12,7 @@
       this._loops[name] = beats.split(' ')
       return this
     },
-    remove: function(name, beats){
+    remove: function(name){
       delete this._loops[name]
     },
     list: function(){
@@ -34,37 +34,6 @@
       superloop(0, this.beatsPerLoop, this.beatsPerMinute, this)
     }
   }
-  // var SL = {
-  //     beatsPerLoop: 110,
-  //     beatsPerMinute: 300,
-  //     _loops: {},
-  //     _stop: false,
-  //     add: function(name, beats) {
-  //       this._loops[name] = beats.split(' ');
-  //       return this;
-  //     },
-  //     remove: function(name, beats) {
-  //       delete this._loops[name];
-  //     },
-  //     list: function() {
-  //       var count = 0;
-  //       for (key in this._loops) {
-  //         console.log(key + ': ' + this._loops[key].join(' '));
-  //         count++;
-  //       }
-  //       console.log(count + ' loop(s)');
-  //     },
-  //     clear: function() {
-  //       this._loops = {};
-  //     },
-  //     stop: function() {
-  //       this._stop = true;
-  //     },
-  //     start: function() {
-  //       this._stop = false
-  //       superloop(0, this.beatsPerLoop, this.beatsPerMinute);
-  //     }
-  // }
 
 
   function playBeat(loop, beat) {
@@ -87,14 +56,10 @@
     if (SL._stop)
       return
     setTimeout(function(){
-      console.log(123)
       var nextBeat = (beat+1)%bpl;
       superloop(nextBeat, bpl, bpm, SL);
     }, (1000 * 60) / bpm);
   }
-
-
-
   exports.MM = MM;
   exports.superloop = superloop
 
@@ -105,29 +70,24 @@
 
 
 var superloops = new MM(110, 300)
-
-
-
-
-
 superloops.add('a',
-            [
-              'k k - - o - - -',
-              'k - - k j - - -',
-              'k - - - o - - -',
-              'k - - k j - - -',
-              'k - - - o - - -',
-              'k - - k j - - -',
-              '- - - - - - - -',
-              'k k - - o - - -',
-              'k - - k j - - -',
-              'k - - - o - - -',
-              'k - - k j - - -',
-              'k - - - o - - -',
-              'k - - k j - - -',
-              '- - - - - - - -',
-            ].join(' ')
-          )
+    [
+      'k k - - o - - -',
+      'k - - k j - - -',
+      'k - - - o - - -',
+      'k - - k j - - -',
+      'k - - - o - - -',
+      'k - - k j - - -',
+      '- - - - - - - -',
+      'k k - - o - - -',
+      'k - - k j - - -',
+      'k - - - o - - -',
+      'k - - k j - - -',
+      'k - - - o - - -',
+      'k - - k j - - -',
+      '- - - - - - - -',
+    ].join(' ')
+  )
   superloops.add('b', [
       '- - - - - - - -',
       '- - - - - - - -',
