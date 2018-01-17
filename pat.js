@@ -5,7 +5,7 @@
     this.beatsPerLoop = beatsPerLoop
     this.beatsPerMinute = beatsPerMinute
     this._loops = {}
-    this._stop = {}
+    this._stop = false
   }
   MM.prototype = {
     add: function(name, beats){
@@ -68,7 +68,6 @@
 
 
   function playBeat(loop, beat) {
-    console.log(loop[beat])
     if(loop[beat] !== '-'){
       var e = jQuery.Event("keydown");
       try {
@@ -88,6 +87,7 @@
     if (SL._stop)
       return
     setTimeout(function(){
+      console.log(123)
       var nextBeat = (beat+1)%bpl;
       superloop(nextBeat, bpl, bpm, SL);
     }, (1000 * 60) / bpm);
@@ -97,7 +97,6 @@
 
   exports.MM = MM;
   exports.superloop = superloop
-  // exports.playBeat = playBeat
 
   if ($container) {
     $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">作曲：Helen</div>');
