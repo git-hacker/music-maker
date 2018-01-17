@@ -1,37 +1,74 @@
+
+
 (function(exports, $container){
-  var SL = {
-      beatsPerLoop: 110,
-      beatsPerMinute: 300,
-      _loops: {},
-      _stop: false,
-      add: function(name, beats) {
-        this._loops[name] = beats.split(' ');
-        return this;
-      },
-      remove: function(name, beats) {
-        delete this._loops[name];
-      },
-      list: function() {
-        var count = 0;
-        for (key in this._loops) {
-          console.log(key + ': ' + this._loops[key].join(' '));
-          count++;
-        }
-        console.log(count + ' loop(s)');
-      },
-      clear: function() {
-        this._loops = {};
-      },
-      stop: function() {
-        this._stop = true;
-      },
-      start: function() {
-        this._stop = false
-        superloop(0, this.beatsPerLoop, this.beatsPerMinute);
-      }
+  function MM(beatsPerLoop, beatsPerMinute){
+    this.beatsPerLoop = beatsPerLoop
+    this.beatsPerMinute = beatsPerMinute
+    this._loops = {}
+    this._stop = {}
   }
+  MM.prototype = {
+    add: function(name, beats){
+      this._loops[name] = beats.split(' ')
+      return this
+    },
+    remove: function(name, beats){
+      delete this._loops[name]
+    },
+    list: function(){
+      var count = 0;
+      for (key in this._loops) {
+        console.log(key + ': ' + this._loops[key].join(' '));
+        count++;
+      }
+      console.log(count + ' loop(s)');
+    },
+    clear: function(){
+      this._loops = {}
+    },
+    stop: function(){
+      this._stop = true
+    },
+    start: function(){
+      this._stop = false
+      superloop(0, this.beatsPerLoop, this.beatsPerMinute, this)
+    }
+  }
+  // var SL = {
+  //     beatsPerLoop: 110,
+  //     beatsPerMinute: 300,
+  //     _loops: {},
+  //     _stop: false,
+  //     add: function(name, beats) {
+  //       this._loops[name] = beats.split(' ');
+  //       return this;
+  //     },
+  //     remove: function(name, beats) {
+  //       delete this._loops[name];
+  //     },
+  //     list: function() {
+  //       var count = 0;
+  //       for (key in this._loops) {
+  //         console.log(key + ': ' + this._loops[key].join(' '));
+  //         count++;
+  //       }
+  //       console.log(count + ' loop(s)');
+  //     },
+  //     clear: function() {
+  //       this._loops = {};
+  //     },
+  //     stop: function() {
+  //       this._stop = true;
+  //     },
+  //     start: function() {
+  //       this._stop = false
+  //       superloop(0, this.beatsPerLoop, this.beatsPerMinute);
+  //     }
+  // }
+
 
   function playBeat(loop, beat) {
+    console.log(loop[beat])
     if(loop[beat] !== '-'){
       var e = jQuery.Event("keydown");
       try {
@@ -44,7 +81,7 @@
     }
   }
 
-  function superloop(beat, bpl, bpm) {
+  function superloop(beat, bpl, bpm, SL) {
     _.each(SL._loops, function(loop) {
       playBeat(loop, beat);
     });
@@ -52,17 +89,26 @@
       return
     setTimeout(function(){
       var nextBeat = (beat+1)%bpl;
-      superloop(nextBeat, bpl, bpm);
+      superloop(nextBeat, bpl, bpm, SL);
     }, (1000 * 60) / bpm);
   }
 
-  superloop(0, SL.beatsPerLoop, SL.beatsPerMinute);
-  exports.superloops = SL;
+
+
+  exports.MM = MM;
+  exports.superloop = superloop
+  // exports.playBeat = playBeat
+
   if ($container) {
     $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">作曲：Helen</div>');
   }
-  console.clear()
-})(window, $("html"));
+})(window, $("html"))
+
+
+var superloops = new MM(110, 300)
+
+
+
 
 
 superloops.add('a',
@@ -83,19 +129,6 @@ superloops.add('a',
               '- - - - - - - -',
             ].join(' ')
           )
-          // .add('b',
-          //   [
-          //     '- - - - - - - -',
-          //     '- - - - - - - -',
-          //     '- - - - - - - -',
-          //     '- - - - - - - -',
-          //     '- - - - - - - -',
-          //     '- - - - - - - -',
-          //     '- q w - e e e d'
-          //   ].join(' ')
-          // )
-          // setTimeout(superloops.remove('b'), 5000)
-
   superloops.add('b', [
       '- - - - - - - -',
       '- - - - - - - -',
@@ -148,4 +181,8 @@ superloops.add('a',
     '- - - - - - - -',
   ].join(' ')
 )
+superloop(0, superloops.beatsPerLoop, superloops.beatsPerMinute, superloops);
+
+
+
 

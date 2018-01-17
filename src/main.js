@@ -580,6 +580,3 @@ $(function() {
 
 });
 
-if (window.console && window.console.log) {
-  console.log('Check out the code at http://github.com/jonobr1/Neuronal-Synchrony');
-}
