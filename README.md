@@ -16,6 +16,7 @@ C D E F G
 1. list()
 1. clear()
 1. start()
+1. stop()
 
 Example:
 

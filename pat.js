@@ -31,7 +31,7 @@
     },
     start: function(){
       this._stop = false
-      superloop(0, this.beatsPerLoop, this.beatsPerMinute, this)
+      superloop(0, superloops.beatsPerLoop, superloops.beatsPerMinute, superloops);
     }
   }
 
@@ -70,6 +70,29 @@
 
 
 var superloops = new MM(110, 300)
+superloops.stop()
+
+var tapMap={
+  '1':{
+    key: 'stop',
+    method: superloops.start
+  },
+  '-1':{
+    key: 'start',
+    method: superloops.stop
+  }
+}
+var tap = -1
+$("#start").on('click', function(){
+  tap = tap * -1
+  this.innerHTML = tapMap[tap].key;
+  if(tap==1){
+    superloops.start()
+  }else{
+    superloops.stop()
+  }
+  // (tapMap[tap].method)()
+})
 superloops.add('a',
     [
       'k k - - o - - -',
