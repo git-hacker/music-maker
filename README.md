@@ -52,7 +52,7 @@ C D E F G
 Example:
 
 ```js
-  const superloops = new new MM(110, 300)
+  const superloops = new MM(110, 300)
   superloops.add('a',
     [
       'k k - - o - - -',
