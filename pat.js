@@ -68,10 +68,6 @@
   }
 })(window, $("html"))
 
-
-var superloops = new MM(110, 300)
-superloops.stop()
-
 var tapMap={
   '1':{
     key: 'stop',
@@ -91,8 +87,10 @@ $("#start").on('click', function(){
   }else{
     superloops.stop()
   }
-  // (tapMap[tap].method)()
 })
+
+var superloops = new MM(110, 300)
+superloops.stop()
 superloops.add('a',
     [
       'k k - - o - - -',
