@@ -44,13 +44,14 @@
       } catch(error) {
         console.warn('Typo at beat ' + beat + '');
       }
-      $("input").val(String.fromCharCode(e.which));
+      // $("input").val(String.fromCharCode(e.which));
       $("html").trigger(e);
     }
   }
-
+  // superloop(0, superloops.beatsPerLoop, superloops.beatsPerMinute, superloops);
   function superloop(beat, bpl, bpm, SL) {
     _.each(SL._loops, function(loop) {
+
       playBeat(loop, beat);
     });
     if (SL._stop)
@@ -67,6 +68,10 @@
     $container.append('<div style="position:fixed; top: 10px; left: 10px;font-family:helvetica; font-size: 30px;color: white; padding: 20px;background-color: rgba(0,0,0,0.2);border: 5px solid black;">作曲：Helen</div>');
   }
 })(window, $("html"))
+
+
+var superloops = new MM(110, 300)
+superloops.stop()
 
 var tapMap={
   '1':{
@@ -87,10 +92,8 @@ $("#start").on('click', function(){
   }else{
     superloops.stop()
   }
+  // (tapMap[tap].method)()
 })
-
-var superloops = new MM(110, 300)
-superloops.stop()
 superloops.add('a',
     [
       'k k - - o - - -',
